@@ -19,8 +19,6 @@
 </html>
 
 <?php
-
-	
 if ( ( isset ($_GET['name'])&&!empty($_GET['name']) ) && ( isset ($_GET['faget'])&&!empty($_GET['faget']) ) ) {
 	$name1 = $_GET['name'];
 	$faget1 = $_GET['faget'];
@@ -28,25 +26,19 @@ if ( ( isset ($_GET['name'])&&!empty($_GET['name']) ) && ( isset ($_GET['faget']
 	$name = strtolower ($name1);
 	$faget = strtolower($faget1);
 	
-	if ( 	( ( !preg_match('/joao/', $name) || !preg_match('/joão/', $name) ) && !preg_match('/ferraz/', $name) ) 
-		&&  ( ( !preg_match('/joao/', $name) || !preg_match('/joão/', $name) ) && !preg_match('/seco/', $name) ) 
-		&&  ( !preg_match('/carmo/', $name)  && !preg_match('/ivan/', $name) )
-		&&  ( ( !preg_match('/flavio/', $name) || !preg_match('/flávio/', $name) ) && !preg_match('/pereira/', $name) )
-	){
+	if( $name != 'joão ferraz' && $name != 'joão pedro ferraz'&& $name != 'joão pedro ferreira ferraz' && $name != 'joão pedro ferreira abrantes ferraz'
+	&& $name!= 'joão seco'&& $name != 'joão fazendeiro seco' && $name != 'ivan do carmo'){
 		similar_text($name, $faget, $result);
 		echo '<p>'.$result .'% Similarity between your name and '.$faget1.'.</p>';
-	}elseif ( (preg_match('/joao/', $name) || preg_match('/joão/', $name)) && preg_match('/seco/', $name) ) {
+	}elseif ($name == 'joão seco' || $name == 'joão fazendeiro seco') {
 		echo '<p>99%</p>';
-	}elseif( preg_match('/ivan/', $name) && preg_match('/carmo/', $name) ) {
+	}elseif($name == 'ivan do carmo'){
 		echo '<p>You have broken the scale! You are a faget queen!</p>';
-	}elseif ( (preg_match('/flavio/', $name) || preg_match('/flávio/', $name)) && preg_match('/pereira/', $name) ) {
-		echo '<p>You have been banned from this website. It is restricted only to animals and WORMS just aren\'t allowed.</p>';
 	}else{
 		echo '<p>0% Similarity between your name and faget. You are a true Macho Man!</p>';
 	};
-	
 }else{
-	echo '<p>All fields are requested. Please, fill them and retry.</p>';
+echo '<p>All fields are requested. Please, fill them and retry.</p>';
 };
 ?>
 
