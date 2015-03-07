@@ -1,9 +1,11 @@
-
-
 <html>
+<head>
+	<link rel="stylesheet" type="text/css" href="lol.css"/>
+</head>
+
 <body>
 	<h3>
-		This is a program that tests your manhood. It compares your name with the word faget in your mother tongue and 
+		This is a program that tests you manhood. It compares your name with the word faget in your mother tongue and 
 		retrieves the percentage of similarity. <br><br><br><br>
 	</h3>
 	<form action="lol.php" method="GET">
@@ -27,17 +29,16 @@ if ( ( isset ($_GET['name'])&&!empty($_GET['name']) ) && ( isset ($_GET['faget']
 	if( $name != 'joão ferraz' && $name != 'joão pedro ferraz'&& $name != 'joão pedro ferreira ferraz' && $name != 'joão pedro ferreira abrantes ferraz'
 	&& $name!= 'joão seco'&& $name != 'joão fazendeiro seco' && $name != 'ivan do carmo'){
 		similar_text($name, $faget, $result);
-		echo $result .'% Similarity between your name and '.$faget1.'.';
+		echo '<p>'.$result .'% Similarity between your name and '.$faget1.'.</p>';
 	}elseif ($name == 'joão seco' || $name == 'joão fazendeiro seco') {
-		echo '99%';
+		echo '<p>99%</p>';
 	}elseif($name == 'ivan do carmo'){
-		echo 'You have broken the scale! You are a faget queen!';
+		echo '<p>You have broken the scale! You are a faget queen!</p>';
 	}else{
-		echo '0% Similarity between your name and faget. You are a true Macho Man!';
+		echo '<p>0% Similarity between your name and faget. You are a true Macho Man!</p>';
 	};
 }else{
-echo 'All fields are requested. Please, fill them and retry.';
+echo '<p>All fields are requested. Please, fill them and retry.</p>';
 };
-
 ?>
 
